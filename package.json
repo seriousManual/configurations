@@ -1,0 +1,27 @@
+{
+  "name": "configurations",
+  "description": "manages multiple, competing configurations",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zaphod1984/configurations"
+  },
+  "author": "Manuel Ernst <zaphod84@gmx.de>",
+  "dependencies": {
+    "cloneextend": "0.0.3"
+  },
+  "main": "./server.js",
+  "keywords": [
+    "wicht"
+  ],
+  "scripts": {
+    "test": "./node_modules/.bin/mocha tests"
+  },
+  "engines": {
+    "node": ">=0.10"
+  },
+  "devDependencies": {
+    "mocha": "~1.15.1",
+    "chai": "~1.8.1"
+  }
+}
