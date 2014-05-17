@@ -84,3 +84,39 @@ var configuration = r.load(path.join(__dirname, '/config'), {
     spam: 'eggs222'
 }
 ````
+## Example 2
+
+Run `example/example.js` with the following variations:
+
+### #1
+
+````bash
+$ NODE_ENV=development node example/example.js
+````
+
+result:
+````json
+{ foo: 'foo-cli', bax: 'baz-development', spam: 'eggs2' }
+````
+
+### #2
+
+````bash
+$ NODE_ENV=production node example/example.js
+````
+
+result:
+````json
+{ foo: 'foo-cli', bax: 'baz-production', spam: 'eggs2' }
+````
+
+### #3
+
+````bash
+$ NODE_ENV=foo node example/example.js
+````
+
+result:
+````json
+{ foo: 'foo-cli', bax: 'baz', spam: 'eggs2' }
+````
