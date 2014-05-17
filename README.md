@@ -96,7 +96,7 @@ $ NODE_ENV=development node example/example.js
 
 result:
 ````json
-{ foo: 'foo-cli', bax: 'baz-development', spam: 'eggs2' }
+{ a: 'b', foo: 'foo-cli', bax: 'baz-development', spam: 'eggs2' }
 ````
 
 ### #2
@@ -107,7 +107,7 @@ $ NODE_ENV=production node example/example.js
 
 result:
 ````json
-{ foo: 'foo-cli', bax: 'baz-production', spam: 'eggs2' }
+{ a: 'b', foo: 'foo-cli', bax: 'baz-production', spam: 'eggs2' }
 ````
 
 ### #3
@@ -118,5 +118,5 @@ $ NODE_ENV=foo node example/example.js
 
 result:
 ````json
-{ foo: 'foo-cli', bax: 'baz', spam: 'eggs2' }
+{ a: 'b', foo: 'foo-cli', bax: 'baz', spam: 'eggs2' }
 ````
