@@ -6,6 +6,8 @@ var configLoader = require('../');
 var TEST_FILE_BASE = path.join(__dirname, 'testFiles');
 
 describe('configLoader', function() {
+    var env, user;
+
     beforeEach(function() {
         var cache = require.cache;
 
@@ -14,6 +16,14 @@ describe('configLoader', function() {
                 delete cache[key];
             }
         });
+
+        env = process.env.NODE_ENV;
+        user = process.env.USER;
+    });
+
+    afterEach(function() {
+        process.env.NODE_ENV = env;
+        process.env.USER = user;
     });
 
     it('should load the default config', function() {
@@ -23,46 +33,28 @@ describe('configLoader', function() {
     });
 
     it('should load the default config, overwritten by the environment config', function() {
-        var tmpEnv = process.env.NODE_ENV;
-
         process.env.NODE_ENV = 'test';
         var config = configLoader.load(path.join(TEST_FILE_BASE, '/config2'));
 
         expect(config).to.deep.equal({foo:'barFromTestEnvironment', foo2: 'baar'});
-
-        process.env.NODE_ENV = tmpEnv;
     });
 
     it('should load the default config, overwritten by the environment config, overwritten by the user config', function() {
-        var tmpEnv = process.env.NODE_ENV;
-        var tmpUser = process.env.USER;
-
         process.env.NODE_ENV = 'development';
         process.env.USER = 'foouser';
 
         var config = configLoader.load(path.join(TEST_FILE_BASE, '/config3'));
 
         expect(config).to.deep.equal({foo:'barFromuser', bar: 'barFromDevelopmentEnvironment', baz: 'bax'});
-
-        //restore
-        process.env.NODE_ENV = tmpEnv;
-        process.env.USER = tmpUser;
     });
 
     it('should load the default config, overwritten by the environment config, *NOT* overwritten by the user config', function() {
-        var tmpEnv = process.env.NODE_ENV;
-        var tmpUser = process.env.USER;
-
         process.env.NODE_ENV = 'test';
         process.env.USER = 'foouser';
 
         var config = configLoader.load(path.join(TEST_FILE_BASE, '/config3'));
 
         expect(config).to.deep.equal({foo:'barFromTestEnvironment', bar: 'barFromTestEnvironment'});
-
-        //restore
-        process.env.NODE_ENV = tmpEnv;
-        process.env.USER = tmpUser;
     });
 
     it('should load the default config and should enhance/overwrite it with cliParms', function() {
