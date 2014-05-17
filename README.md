@@ -86,7 +86,15 @@ var configuration = r.load(path.join(__dirname, '/config'), {
 ````
 ## Example 2
 
-Run `example/example.js` with the following variations:
+The file `example/example.js` contains the following content:
+````javascript
+var configuration = configurations.load(path.join(__dirname, '/config'), {
+    externalconfig: path.join(__dirname, 'config', 'optional.js'),
+    foo: 'foo-cli'
+});
+````
+
+Run it with the following parameters:
 
 ### #1
 
