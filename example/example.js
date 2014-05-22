@@ -7,4 +7,4 @@ var configuration = c.load(path.join(__dirname, '/config'), {
     foo: 'foo-cli'
 });
 
-console.log( configuration );
+console.log(configuration);

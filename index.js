@@ -27,22 +27,22 @@ function load(baseDir, cliArgs) {
     var configuration = require(pathDefault);
 
     //checking if there's a config file named after the current environment. file name pattern: {environmentName}.js
-    if(fs.existsSync(pathEnvironment)) {
+    if (fs.existsSync(pathEnvironment)) {
         configuration = ce.extend(configuration, require(pathEnvironment));
     }
 
     //we're checking if there's a config file named after the current user, but only in development. file name pattern: user.{userName}.js
-    if(environment === KEY_DEVELOPMENT) {
-        if(fs.existsSync(pathUser)) {
+    if (environment === KEY_DEVELOPMENT) {
+        if (fs.existsSync(pathUser)) {
             configuration = ce.extend(configuration, require(pathUser));
         }
     }
 
     //we provide the possibility to assign the path to a external configuration file
-    if(cliArgs[KEY_EXTERNAL_FILE]) {
+    if (cliArgs[KEY_EXTERNAL_FILE]) {
         var externalConfigPath = cliArgs[KEY_EXTERNAL_FILE];
 
-        if(fs.existsSync(externalConfigPath)) {
+        if (fs.existsSync(externalConfigPath)) {
             configuration = ce.extend(configuration, require(externalConfigPath));
         } else {
             throw new Error('supplied external config file could not be found');
@@ -51,7 +51,7 @@ function load(baseDir, cliArgs) {
         delete cliArgs[KEY_EXTERNAL_FILE];
     }
 
-    if(Object.keys(cliArgs).length > 0) {
+    if (Object.keys(cliArgs).length > 0) {
         ce.extend(configuration, cliArgs);
     }
 
