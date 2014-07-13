@@ -70,7 +70,7 @@ module.exports = {
 var path = require('path');
 var c = require('configurations');
 
-var configuration = r.load(path.join(__dirname, '/config'), {
+var configuration = c.load(path.join(__dirname, '/config'), {
   bax: 'bazzzz',
   externalconfig: '/foo/bar/optionalConfig.js'
 });
