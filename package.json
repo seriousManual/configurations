@@ -10,9 +10,11 @@
   "dependencies": {
     "cloneextend": "0.0.3"
   },
-  "main": "./server.js",
+  "main": "./index.js",
   "keywords": [
-    "wicht"
+    "configuration",
+    "configurations",
+    "environment"
   ],
   "scripts": {
     "test": "./node_modules/.bin/mocha tests"
