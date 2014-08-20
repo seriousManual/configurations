@@ -8,7 +8,7 @@
   },
   "author": "Manuel Ernst <zaphod84@gmx.de>",
   "dependencies": {
-    "cloneextend": "0.0.3"
+    "hoek": "^2.4.1"
   },
   "main": "./index.js",
   "keywords": [
@@ -23,7 +23,7 @@
     "node": ">=0.10"
   },
   "devDependencies": {
-    "mocha": "~1.15.1",
-    "chai": "~1.8.1"
+    "mocha": "^1.15.1",
+    "chai": "^1.8.1"
   }
 }
