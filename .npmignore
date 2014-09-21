@@ -1,3 +1,5 @@
+.idea
+node_modules
 .travis.yml
 example
 tests
