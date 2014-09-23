@@ -11,7 +11,7 @@ Loads configuration files depending on the environment, the users individual con
 
 ### configuration#load(baseDir, additionalParameters)
 
-Creates a configurations hash out of serveral overlapping configuration files.
+Creates a configurations hash out of several overlapping configuration files.
 
 * `baseDir` the directory configurations are loaded from
 * `additionalParameters` optional additional Parameters e.g. from cli arguments
@@ -20,19 +20,19 @@ Creates a configurations hash out of serveral overlapping configuration files.
 
 ### Default Configuration
 
-The config file `default.js` is always loaded and is the base configuration.
+The config file `default.(js|json)` is always loaded and is the base configuration.
 
 ### Environment Configuration
 
 The environment is used to load an additional configurations file.
-Naming convention is `{environment}.js`.
+Naming convention is `{environment}.(js|json)`.
 The environment configuration is optional.
 
 ### User Configuration
 
 For local development an configuration individual for every developer is useful.
 Will be only loaded if the environment is `development`.
-Naming convention is `user.{userName}.js`.
+Naming convention is `user.{userName}.(js|json)`.
 The user configuration is optional.
 
 ### Additional parameters
