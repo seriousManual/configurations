@@ -26,15 +26,28 @@ describe('configLoader', function () {
         process.env.USER = user;
     });
 
-    it('should load the default config', function () {
+    it('should load the default config (js)', function () {
         var config = configLoader.load(path.join(TEST_FILE_BASE, '/config'));
 
         expect(config).to.deep.equal({foo: 'bar', bax: 'baz', a: {b: {c: 42, d: 23 } } });
     });
 
-    it('should load the default config, overwritten by the environment config', function () {
+    it('should load the default config (json)', function () {
+        var config = configLoader.load(path.join(TEST_FILE_BASE, '/config_json'));
+
+        expect(config).to.deep.equal({foo: 'bar', bax: 'baz', a: {b: {c: 42, d: 23 } } });
+    });
+
+    it('should load the default config, overwritten by the environment config (js)', function () {
         process.env.NODE_ENV = 'test';
         var config = configLoader.load(path.join(TEST_FILE_BASE, '/config2'));
+
+        expect(config).to.deep.equal({foo: 'barFromTestEnvironment', foo2: 'baar'});
+    });
+
+    it('should load the default config, overwritten by the environment config', function () {
+        process.env.NODE_ENV = 'test';
+        var config = configLoader.load(path.join(TEST_FILE_BASE, '/config2_json'));
 
         expect(config).to.deep.equal({foo: 'barFromTestEnvironment', foo2: 'baar'});
     });
@@ -44,6 +57,15 @@ describe('configLoader', function () {
         process.env.USER = 'foouser';
 
         var config = configLoader.load(path.join(TEST_FILE_BASE, '/config3'));
+
+        expect(config).to.deep.equal({foo: 'barFromuser', bar: 'barFromDevelopmentEnvironment', baz: 'bax'});
+    });
+
+    it('should load the default config, overwritten by the environment config, overwritten by the user config (json)', function () {
+        process.env.NODE_ENV = 'development';
+        process.env.USER = 'foouser';
+
+        var config = configLoader.load(path.join(TEST_FILE_BASE, '/config3_json'));
 
         expect(config).to.deep.equal({foo: 'barFromuser', bar: 'barFromDevelopmentEnvironment', baz: 'bax'});
     });
@@ -79,6 +101,12 @@ describe('configLoader', function () {
     it('should throw on invalid external file', function () {
         expect(function () {
             configLoader.load(path.join(TEST_FILE_BASE, 'config'), {externalconfig: 'fooooooBar'});
-        }).to.throw();
+        }).to.throw(/supplied external config file could not be found/);
+    });
+
+    it('should throw on invalid default file', function () {
+        expect(function () {
+            configLoader.load(path.join(TEST_FILE_BASE, 'invalid'));
+        }).to.throw(/Cannot find module (.*)default.json/);
     });
 });
