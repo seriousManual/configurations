@@ -43,7 +43,7 @@ cli arguments are a possible source.
 ### External optional additional Configuration
 
 Via the parameters hash the path to an additonal configurations file can be specified.
-The key for the options hash os `externalconfig`.
+The key for the options hash is `externalconfig`.
 
 ## Example
 
