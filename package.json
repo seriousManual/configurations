@@ -2,14 +2,12 @@
   "name": "configurations",
   "description": "manages multiple, competing configurations",
   "version": "1.1.0",
+  "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/zaphod1984/configurations"
+    "url": "https://github.com/seriousManual/configurations"
   },
-  "author": "Manuel Ernst <zaphod84@gmx.de>",
-  "dependencies": {
-    "hoek": "^2.4.1"
-  },
+  "author": "Manuel Ernst <seriousstuff@gmx.de>",
   "main": "./index.js",
   "keywords": [
     "configuration",
@@ -22,8 +20,11 @@
   "engines": {
     "node": ">=0.10"
   },
+  "dependencies": {
+    "hoek": "^4.0.0"
+  },
   "devDependencies": {
-    "mocha": "^1.15.1",
-    "chai": "^1.8.1"
+    "chai": "^3.5.0",
+    "mocha": "^2.5.3"
   }
 }
