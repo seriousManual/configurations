@@ -1,4 +1,4 @@
-configurations [![Build Status](https://travis-ci.org/zaphod1984/configurations.png)](https://travis-ci.org/zaphod1984/configurations)
+configurations [![Build Status](https://travis-ci.org/seriousManual/configurations.png)](https://travis-ci.org/seriousManual/configurations)
 =======
 
 [![NPM](https://nodei.co/npm/configurations.png)](https://nodei.co/npm/configurations/)
