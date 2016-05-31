@@ -47,7 +47,7 @@ function load(baseDir, cliArgs) {
         if (fs.existsSync(externalConfigPath)) {
             configuration = hoek.merge(configuration, require(externalConfigPath));
         } else {
-            throw new Error('supplied external config file could not be found');
+            throw new Error('supplied external config file could not be found: "' + externalConfigPath + '"');
         }
 
         delete cliArgs[KEY_EXTERNAL_FILE];

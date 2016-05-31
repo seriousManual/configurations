@@ -101,7 +101,7 @@ describe('configLoader', function () {
     it('should throw on invalid external file', function () {
         expect(function () {
             configLoader.load(path.join(TEST_FILE_BASE, 'config'), {externalconfig: 'fooooooBar'});
-        }).to.throw(/supplied external config file could not be found/);
+        }).to.throw(/supplied external config file could not be found: "fooooooBar"/);
     });
 
     it('should throw on invalid default file', function () {
