@@ -15,7 +15,7 @@
     "environment"
   ],
   "scripts": {
-    "test": "./node_modules/.bin/mocha tests"
+    "test": "mocha tests"
   },
   "engines": {
     "node": ">= 4"
